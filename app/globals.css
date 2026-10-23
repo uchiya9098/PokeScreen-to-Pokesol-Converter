@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #f3f4f6;
+  color: #1b1f27;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid #1c4ea0;
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* 区画: 白地＋細い罫線のみ。影・ぼかし・グラデーションは使わない */
+  .panel {
+    @apply rounded border border-line bg-white p-5;
+  }
+  .panel-title {
+    @apply mb-4 border-b border-line pb-3 text-base font-bold text-ink;
+  }
+  .field-label {
+    @apply mb-1 block text-xs font-medium text-ink-sub;
+  }
+  .field-input {
+    @apply w-full rounded border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded border px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn border-accent bg-accent text-white hover:bg-[#173f85];
+  }
+  .btn-secondary {
+    @apply btn border-line bg-white text-ink hover:border-ink-faint;
+  }
+  .btn-small {
+    @apply rounded border border-line bg-white px-2 py-1 text-xs font-medium text-ink-sub transition-colors hover:border-ink-faint hover:text-ink disabled:cursor-not-allowed disabled:opacity-40;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
